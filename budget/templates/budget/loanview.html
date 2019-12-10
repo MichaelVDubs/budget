@@ -1,0 +1,45 @@
+{% load static %}
+
+<html>
+  <head>
+
+  </head>
+
+  <body>
+
+    <button type="button"><a href="addloan"> Add a Loan <a/></button>
+
+      {% if all_loans %}
+        <table style="width:100%">
+          <tr>
+            <th>Name</th>
+            <th>Begin Date</th>
+            <th>End Date</th>
+            <th>Amount</th>
+            <th>Options</th>
+          </tr>
+        {% for loan in all_loans %}
+          <tr>
+            <td> {{ loan.name }}</td>
+            <td> {{ loan.begin_date|date }}</td>
+            <td> {{ loan.end_date|date }}</td>
+            <td> {{ loan.amount }}</td>
+            <td> <a href="/budget/loanview/{{ loan.id }}/">
+                  <img title = "View" alt="View" src="{% static 'images/ButtonHelp.png' %}" height="30" width="30"/>
+                </a>
+                <a href="{% url 'loanedit' pk=loan.pk %}">
+                  <img title = "Edit" alt="Edit" src="{% static 'images/pencil-icon.png' %}" height="30" width="30"/>
+                </a>
+                <a href="{% url 'loandelete' pk=loan.pk %}">
+                  <img title = "Delete" alt="Delete" src="{% static 'images/delete.png' %}" height="30" width="30"/>
+                </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+        <p>There are no loans</p>
+      {% endif %}
+  </body>
+
+</html>
