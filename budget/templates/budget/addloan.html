@@ -2,48 +2,18 @@
 
 <html>
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-    (function($) {
-      $.fn.currencyInput = function() {
-  this.each(function() {
-    var wrapper = $("<div class='currency-input' />");
-    $(this).wrap(wrapper);
-    $(this).before("<span class='currency-symbol'>$</span>");
-    $(this).change(function() {
-      var min = parseFloat($(this).attr("min"));
-      var max = parseFloat($(this).attr("max"));
-      var value = this.valueAsNumber;
-      if(value < min)
-        value = min;
-      else if(value > max)
-        value = max;
-      $(this).val(value.toFixed(2));
-    });
-  });
-};
-})(jQuery);
-
-$(document).ready(function() {
-$('input.currency').currencyInput();
-});
-    </script>
-    <style>
-    .currency {
-padding-left:12px;
-}
-
-.currency-symbol {
-position:absolute;
-padding: 2px 5px;
-}
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet" /> <!-- https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans -->
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
+    <link href="{% static 'slick/slick.css' %}" rel="stylesheet" /> <!-- https://kenwheeler.github.io/slick/ -->
+    <link href="{% static 'slick/slick-theme.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" /> <!-- https://getbootstrap.com -->
+	<link href="{% static 'css/templatemo-new-vision.css' %}" rel="stylesheet" />
   </head>
 
   <body>
 
-    <form method="POST" class="post-form">{% csrf_token %}
-      {{ form }}
+    <form method="POST" class="loan-form">{% csrf_token %}
+      {{ form.as_p }}
       <input type="submit" value="Submit"/>
     </form>
 
