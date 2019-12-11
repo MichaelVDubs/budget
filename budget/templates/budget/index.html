@@ -3,40 +3,144 @@
 <html>
   <head>
     <title> Loans </title>
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet" /> <!-- https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans -->
-    <link href="{% static 'css/all.min.css' %}" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
-    <link href="{% static 'slick/slick.css' %}" rel="stylesheet" /> <!-- https://kenwheeler.github.io/slick/ -->
-    <link href="{% static 'slick/slick-theme.css' %}" rel="stylesheet" />
-	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" /> <!-- https://getbootstrap.com -->
-	<link href="{% static 'css/templatemo-new-vision.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <link href="{% static 'css/marketing.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
 
   </head>
 
   <body>
-    <h4 class="text-center"> Welcome to the loan application! </h4>
-    <br>
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
+    {% if request.session.user is null %}
+    <div class="header">
+      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
 
-						<a class="txt2" href="adduser">
-							Sign Up
-						</a><br>
+        <a class="pure-menu-heading" href="">Your Site</a>
 
-            <a class="txt2" href="login">
-							Login
-						</a><br>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="adduser" class="pure-menu-link">Sign Up</a></li>
+            <li class="pure-menu-item"><a class="pure-menu-link" href="login"> Login <a/></li>
+        </ul>
+      </div>
+    </div>
 
-            <a class="txt2" href="loanview">
-							Loan View - Get rid soon
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+    <div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">Are you ready to be sad?</h1>
+        <p class="splash-subhead">
+            Because you can be when you add all your loans with us.
+        </p>
+        <p>
+            <a href="adduser" class="pure-button pure-button-primary">Register</a>
+        </p>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">So what do we do actually?</h2>
+
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    Honestly not a whole lot
+                </h3>
+                <p>
+                    Mainly, this was just for the CMSC331 final project... But we do some things.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-mobile"></i>
+                    You can add your loans!
+                </h3>
+                <p>
+                    This is the C in the CRUD operations. It is very exciting to become more in debt.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-th-large"></i>
+                    You can delete your loans!
+                </h3>
+                <p>
+                    Because who wants to see that garbage anyway? This is the D in CRUD.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-check-square-o"></i>
+                    AND...
+                </h3>
+                <p>
+                    You can also view and edit your existing loans. This is the R and U in CRUD.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+          <iframe src="https://giphy.com/embed/14udF3WUwwGMaA" width="300"  frameBorder="0" class="pure-img-responsive" allowFullScreen></iframe>
+          <div><br></div>
+          <iframe src="https://giphy.com/embed/j4qARzEMsDOlCOjcl3" width="480" height="480" frameBorder="0" class="pure-img-responsive" allowFullScreen></iframe>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+            <h2 class="content-head content-head-ribbon">Let's get to it, shall we?.</h2>
+
+            <p>
+                Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.
+            </p>
+        </div>
+    </div>
+
+</div>
+    {% else %}
+    <div class="header">
+      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+
+        <a class="pure-menu-heading" href="">Hi, {{ request.session.name }}</a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-selected"><a href="index" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="loanview" class="pure-menu-link">View Loans</a></li>
+            <li class="pure-menu-item"><a class="pure-menu-link" href="logout"> Logout <a/></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">You know the drill</h1>
+        <p class="splash-subhead">
+            Let's take a look at the money
+        </p>
+        <p>
+            <a href="loanview" class="pure-button pure-button-primary">View Loans</a>
+        </p>
+    </div>
+</div>
+
+    {% endif %}
   </body>
 
 </html>
+
+{% if request.session.user is null %}
+hello there
+{% endif %}
+
+<a class="txt2" href="adduser">
+  Sign Up
+</a><br>
+
+<a class="txt2" href="login">
+  Login
+</a><br>
+
+<a class="txt2" href="loanview">
+  Loan View - Get rid soon
+</a>

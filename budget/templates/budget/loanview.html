@@ -2,24 +2,49 @@
 
 <html>
   <head>
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet" /> <!-- https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans -->
-    <link href="{% static 'css/all.min.css' %}" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
-    <link href="{% static 'slick/slick.css' %}" rel="stylesheet" /> <!-- https://kenwheeler.github.io/slick/ -->
-    <link href="{% static 'slick/slick-theme.css' %}" rel="stylesheet" />
-	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" /> <!-- https://getbootstrap.com -->
-	<link href="{% static 'css/templatemo-new-vision.css' %}" rel="stylesheet" />
+    <title> Loans </title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <link href="{% static 'css/marketing.css' %}" rel="stylesheet" />
 
   </head>
 
   <body>
 
-    <button type="button"><a href="addloan"> Add a Loan <a/></button>
+    <div class="header">
+      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
 
-    <button type="button"><a href="logout"> Logout <a/></button>
+        <a class="pure-menu-heading" href="">Hi, {{ request.session.name }}</a>
 
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-selected"><a href="index" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="loanview" class="pure-menu-link">View Loans</a></li>
+            <li class="pure-menu-item"><a class="pure-menu-link" href="logout"> Logout <a/></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="splash-container">
+    <div class="splash">
+      <h1 class="splash-head">
+        You're in a lot of debt
+      </h1>
+      <p class="splash-subhead">
+        Why not add more? <br>
+        <a href="addloan" class="pure-button pure-button-primary"> Add a Loan <a/>
+        <br> Or scroll down to see your existing debt
+      </p>
+
+    </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <h2 class="content-head is-center">Here's the details:</h2>
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
       {% if all_loans %}
-        <table style="width:100%">
+        <table style="width:100%" class="pure-table">
+          <thead>
           <tr>
             <th>Name</th>
             <th>Begin Date</th>
@@ -27,7 +52,9 @@
             <th>Amount</th>
             <th>Options</th>
           </tr>
+        </thead>
         {% for loan in all_loans %}
+        <tbody>
           <tr>
             <td> {{ loan.name }}</td>
             <td> {{ loan.begin_date|date }}</td>
@@ -45,10 +72,16 @@
             </td>
           </tr>
         {% endfor %}
+      </tbody>
       </table>
       {% else %}
         <p>There are no loans</p>
       {% endif %}
+</div>
+</div>
+</div>
+</div>
+
   </body>
 
 </html>

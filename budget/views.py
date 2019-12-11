@@ -20,6 +20,8 @@ def adduser(request):
             if user.password == confirm:
                 user.set_password(user.password)
                 user = form.save()
+                request.session['user'] = user.pk
+                request.session['name'] = user.username
             else:
                 form = UserForm()
                 return render(request, 'budget/adduser.html', {'form':form})
@@ -37,6 +39,7 @@ def login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 request.session['user'] = user.pk
+                request.session['name'] = user.username
                 return redirect('loanview')
             else:
                 HttpResponse("General Kenobi...")
@@ -46,6 +49,7 @@ def login(request):
 
 def logout(request):
     del request.session['user']
+    del request.session['name']
     return redirect('index')
 
 def loanview(request):

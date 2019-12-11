@@ -2,20 +2,41 @@
 
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet" /> <!-- https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans -->
-    <link href="{% static 'css/all.min.css' %}" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
-    <link href="{% static 'slick/slick.css' %}" rel="stylesheet" /> <!-- https://kenwheeler.github.io/slick/ -->
-    <link href="{% static 'slick/slick-theme.css' %}" rel="stylesheet" />
-	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" /> <!-- https://getbootstrap.com -->
-	<link href="{% static 'css/templatemo-new-vision.css' %}" rel="stylesheet" />
+    <title> Loans </title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <link href="{% static 'css/marketing.css' %}" rel="stylesheet" />
   </head>
 
   <body>
+    <div class="header">
+      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
 
-    <form method="POST" class="user-form">{% csrf_token %}
+        <a class="pure-menu-heading" href="">Your Site</a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="adduser" class="pure-menu-link">Sign Up</a></li>
+            <li class="pure-menu-item"><a class="pure-menu-link" href="login"> Login <a/></li>
+        </ul>
+      </div>
+    </div>
+    <br>
+
+    <div class="content">
+            <h2 class="content-head is-center">Welcome to depression!</h2>
+    <div class="pure-g">
+    <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+    <form method="POST" class="pure-form pure-form-stacked">
+      <fieldset>
+      {% csrf_token %}
       {{ form.as_p }}
-      <input type="submit" value="Submit"/>
+      <button type="submit" class="pure-button" >Create</button>
+    </fieldset>
     </form>
+
+    </div>
+    </div>
+    </div>
 
   </body>
 

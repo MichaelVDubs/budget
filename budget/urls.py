@@ -12,4 +12,5 @@ urlpatterns = [
     path('adduser', views.adduser, name='adduser'),
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
+    path('index', views.index, name='indexes'),
 ]
